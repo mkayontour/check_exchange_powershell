@@ -95,7 +95,10 @@ $state = @{}
 $performance = @{}
 
 try {
-    $tests = Test-OutlookWebServices `        -Identity $credential.UserName `        -ClientAccessServer $ClientAccessServer `        -MailboxCredential $credential `
+    $tests = Test-OutlookWebServices `
+        -Identity $credential.UserName `
+        -ClientAccessServer $ClientAccessServer `
+        -MailboxCredential $credential `
         -TrustAnySSLCertificate:$TrustAnySSLCertificate
 } catch {
     Plugin-Exit $NagiosUnknown "Test-OutlookWebServices failed: $error"
